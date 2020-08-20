@@ -1,3 +1,7 @@
+redditclientid = ""
+redditclientsecret = ""
+subreddit = "" #needs to exist
+
 from urllib.parse import urlparse
 import aiofiles
 import aiohttp
@@ -7,15 +11,15 @@ import os
 
 
 reddit = praw.Reddit(
-    client_id="giTo1WhRJaqN1Q",
-    client_secret="RdzlJ3yyZBdheqcIAq0tM59HSlw",
-    user_agent="AgentHa",
+    client_id=redditclientid,
+    client_secret=redditclientsecret,
+    user_agent="Random",
 )
 
 def links(limit=10):
     print(limit)
-    hentai = reddit.subreddit("futanari").hot(limit=limit)
-    submissions = [x for x in hentai]
+    hot = reddit.subreddit(subreddit).hot(limit=limit)
+    submissions = [x for x in hot]
 
     list = []
 
@@ -35,7 +39,6 @@ async def down(url):
     split_path = path.split("/")
 
     if len(split_path) <= 2:
-        # async with sem:
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
 
@@ -47,7 +50,7 @@ async def down(url):
 
 if __name__ == "__main__":
     if not os.path.isdir("~/downloads"): os.mkdir('downloads')
-    limit = int(input("개수 (Default as 10) : "))
+    limit = int(input("How much ? (Default as 10) : "))
     list = links(limit)
 
     error = []
