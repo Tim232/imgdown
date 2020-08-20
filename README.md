@@ -1,7 +1,11 @@
 # imgdown : SubReddit Image Downloader
-You **__MUST__** follow the LICENSE!
+You **MUST** follow the LICENSE!
 
-Enter your praw reddit client id and client secret with your choice of the existing subreddit in **downloader.py** in order to use this downloader!
+Download the latest version of **downloader.exe** on **Releases**.
+
+Execute **downloader.exe**
+
+Enter your praw reddit client id and client secret with your choice of the existing subreddit on the console in order to use this downloader!
 
 Made by Tim23#9566 (on Discord)
 
